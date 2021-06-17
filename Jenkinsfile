@@ -24,6 +24,7 @@ pipeline {
         }
       }
     }
+    //here you have to install aws cli ...It is a one time process so delete this stage after the first successful build.
     stage('Install kubectl and update kube-config file') {
       steps {
         sh '''
