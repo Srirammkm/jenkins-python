@@ -41,12 +41,8 @@ pipeline {
             chmod +x ./kubectl
             sudo mv ./kubectl /usr/local/bin/kubectl
             kubectl version --client
-            '''
-      }
-      steps {
-        sh '''
             aws eks --region ${REGION} update-kubeconfig --name ${CLUSTER}
-           '''
+            '''
       }
     }
     stage('Deploy to EKS') {
