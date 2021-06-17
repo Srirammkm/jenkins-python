@@ -9,7 +9,7 @@ pipeline {
   tools {
     dockerTool 'docker'
   }
-  agent worker01 
+  agent { label 'worker01' }  
   stages {
     stage('Build with Docker') {
       steps {
