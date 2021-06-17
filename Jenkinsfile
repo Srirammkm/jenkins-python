@@ -27,10 +27,10 @@ pipeline {
     stage('Install AWS Cloud CLI') {
       steps {
         sh '''
-          sudo apt install -y unzip
+          apt install -y unzip
           curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
           unzip awscliv2.zip
-          sudo ./aws/install
+          ./aws/install
           '''
       }
     }
@@ -39,7 +39,7 @@ pipeline {
         sh '''
             curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.18.0/bin/linux/amd64/kubectl
             chmod +x ./kubectl
-            sudo mv ./kubectl /usr/local/bin/kubectl
+            mv ./kubectl /usr/local/bin/kubectl
             kubectl version --client
             aws eks --region ${REGION} update-kubeconfig --name ${CLUSTER}
             '''
