@@ -1,8 +1,8 @@
 pipeline {
   environment {
     REGION = "ap-southeast-1"
-    CLUSTER = "production-cluster"
-    registry = "srirammk18/flask-prod"
+    CLUSTER = "development-cluster"
+    registry = "srirammk18/flask-dev"
     registryCredential = 'dockerhub_id'
     dockerImage = ''
   }
