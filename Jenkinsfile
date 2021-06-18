@@ -6,7 +6,7 @@ pipeline {
     registryCredential = 'dockerhub_id'
     dockerImage = ''
   }
-  agent { label 'worker01' }  
+  agent any //{ label 'worker01' }  
   stages {
     stage('Build with Docker') {
       steps {
@@ -22,16 +22,6 @@ pipeline {
           dockerImage.push()
           }
         }
-      }
-    }
-    stage('Install AWS Cloud CLI') {
-      steps {
-        sh '''
-          sudo apt install -y unzip
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          sudo ./aws/install
-          '''
       }
     }
     stage('Install kubectl and update kube-config file') {
