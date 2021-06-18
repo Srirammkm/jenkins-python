@@ -24,7 +24,7 @@ pipeline {
         }
       }
     }
-    stage('Uninstall aws older version and update to new version') {
+/*  stage('Uninstall aws older version and update to new version') {
       steps {
         sh '''
             apt install unzip
@@ -35,7 +35,7 @@ pipeline {
             ./aws/install
             '''
       }
-    }
+    } */
     stage('Install kubectl and update kube-config file') {
       steps {
         sh '''
