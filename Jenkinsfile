@@ -25,6 +25,18 @@ pipeline {
       }
     }
     //here you have to install aws cli ...It is a one time process so delete this stage after the first successful build.
+    stage('Uninstall aws older version and update to new version') {
+      steps {
+        sh '''
+            apt install unzip
+            rm -rf /usr/local/aws
+            rm /usr/local/bin/aws
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            ./aws/install
+            '''
+      }
+    }
     stage('Install kubectl and update kube-config file') {
       steps {
         sh '''
