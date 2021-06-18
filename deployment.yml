@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: flask-micro
-        image: srirammk18/flask-dev:final
+        image: srirammk18/flask-dev:${BUILD_NUMBER}
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
